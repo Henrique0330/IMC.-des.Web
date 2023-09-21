@@ -1,88 +1,88 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
     <link rel="stylesheet" href="principal.css">
-    <script>
-
-        function click_calcular() {
-            let VP = document.getElementById("txtVP").value;
-            let VA = document.getElementById("txtVA").value;
-            if (VP == "") {
-                alert("Informe o Peso");
-            } else if (VA == "") {
-                alert("Informe a Altura");
-            } else {
-                let soma = Number(VP) / Number(VA ** 2);
-                document.getElementById("txtImc").value = soma.toFixed(2);
-
-                if (soma <= 18.5) {
-                    document.getElementById("txtClassificacao").value = "Abaixo do normal";
-                    document.getElementById("txtClassificacao").style.background = "blue"
-                }
-                else if (soma > 18.5 && soma <= 24.9) {
-                    document.getElementById("txtClassificacao").value = "Normal";
-                    document.getElementById("txtClassificacao").style.background = "green"
-                }
-                else if (soma > 25 && soma <= 29.9) {
-                    document.getElementById("txtClassificacao").value = "Sobrepeso";
-                    document.getElementById("txtClassificacao").style.background = "yellow"
-                }
-                else if (soma > 30 && soma <= 34.9) {
-                    document.getElementById("txtClassificacao").value = "Obesidade grau I";
-                    document.getElementById("txtClassificacao").style.background = "orange"
-                }
-                else if (soma > 35 && soma <= 39.9) {
-                    document.getElementById("txtClassificacao").value = "Obesidade grau II";
-                    document.getElementById("txtClassificacao").style.background = "orange"
-                }
-                else {
-                    document.getElementById("txtClassificacao").value = "Obesidade grau III";
-                    document.getElementById("txtClassificacao").style.background = "red"
-                }
-            }
-        }
-        function click_limpar() {
-            document.getElementById("txtVP").value = "";
-            document.getElementById("txtVA").value = "";
-            document.getElementById("txtImc").value = "";
-            document.getElementById("txtClassificacao").value = "";
-        }
-
-    </script>
+    <title>Cálculo IMC</title>
 </head>
+<script>
+
+    function click_calcular() {
+        let VPeso = document.getElementById("txtVPeso").value;
+        let VAltura = document.getElementById("txtVAltura").value;
+        if (VPeso == "") {
+            alert("Informe seu Peso");
+        } else if (VAltura == "") {
+            alert("Informe sua altura");
+        } else {
+            let soma = Number(VPeso) / Number(VAltura ** 2);
+            document.getElementById("txtResultado").value = soma.toFixed(2);
+            if (soma <= 18.5) {
+            document.getElementById("txtClassificacao").value = "Abaixo do normal";
+            document.getElementById("txtClassificacao").style.background = "blue"
+        }
+        else if (soma > 18.5 && soma <= 24.9) {
+            document.getElementById("txtClassificacao").value = "Normal";
+            document.getElementById("txtClassificacao").style.background = "green"
+        }
+        else if (soma > 25 && soma <= 29.9) {
+            document.getElementById("txtClassificacao").value = "Sobrepeso";
+            document.getElementById("txtClassificacao").style.background = "yellow"
+        }
+        else if (soma > 30 && soma <= 34.9) {
+            document.getElementById("txtClassificacao").value = "Obesidade grau I";
+            document.getElementById("txtClassificacao").style.background = "orange"
+        }
+        else if (soma > 35 && soma <= 39.9) {
+            document.getElementById("txtClassificacao").value = "Obesidade grau II";
+            document.getElementById("txtClassificacao").style.background = "orange"
+        }
+        else {
+            document.getElementById("txtClassificacao").value = "Obesidade grau III";
+            document.getElementById("txtClassificacao").style.background = "red"
+        }
+        }
+        
+    }
+
+    function click_limpar() {
+        document.getElementById("txtVPeso").value = "";
+        document.getElementById("txtVAltura").value = "";
+        document.getElementById("txtResultado").value = "";
+
+    }
+
+</script>
+
 <body>
     <h1 class="BB">Intense Fit</h1>
-    <h1 id="tit">
-        Calculo 
-    </h1>
-
-    <form>
-        <div>
-            <label for="txtVP">Peso(kg)</label><br>
-            <input type="number" name="" id="txtVP" value="1">
+    <div class="T">
+        <div class="Bor">
+            <h1 id="tit">Cálculo IMC</h1>
+            <form>
+                <label for="txtVPeso">Peso(kg)</label><br>
+                <input type="number" name="" id="txtVPeso" >
+                <br>
+                <br>
+                <label for="txtVAltura">Altura(m)</label><br>
+                <input type="number" name="" id="txtVAltura">
+                <br>
+                <br>
+                <label for="txtResultado">IMC</label><br>
+                <input type="number" name="" id="txtResultado" disabled>
+                <br>
+                <br>
+                <label for="txtClassificacao">Classificação</label><br>
+                <input type="text" name="" id="txtClassificacao" disabled>
+                <br>
+                <br>
+                <input type="button" value="Calcular" onclick="click_calcular();">
+                <input type="button" value="Limpar" onclick="click_limpar();">
+            </form>
         </div>
-        <div>
-            <label for="txtVA">Altura(M)</label><br>
-            <input type="number" name="" id="txtVA">
-        </div>
-        <div>
-            <label for="txtImc">IMC</label><br>
-            <input type="number" name="" id="txtImc" disabled>
-        </div>
-        <div>
-            <label for="txtClassificacao">Classificação</label><br>
-            <input type="text" name="" id="txtClassificacao" disabled>
-        </div>
-        <div>
-            <input type="button" value="Calcular" onclick="click_calcular();">
-            <input type="button" value="Limpar" onclick="click_limpar();">
-        </div>
-    </form>
-
+    </div>
 
 
 </body>
